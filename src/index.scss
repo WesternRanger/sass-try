@@ -1,0 +1,27 @@
+.hello {
+    color: red;
+    .a {
+        background: yellow;
+    }
+}
+.a {
+    background: blue;
+}
+$color: (
+        default: #fff,
+        primary: #22ae39,
+        negative: #d9534f
+);
+@mixin wocao($width, $height) {
+    width: $width;
+    height: $height;
+    @content
+}
+
+.border-color {
+    color: map_get($color, default);
+    background: map_get($color, negative);
+    @include wocao(300px, 400px) {
+        border: yellow solid 3px;
+    }
+}
